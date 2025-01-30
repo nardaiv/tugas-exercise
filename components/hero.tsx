@@ -9,7 +9,7 @@ const playwrite = Playwrite_IN({});
 
 export default function Header() {
   return (
-    <div className="flex w-full flex-col-reverse items-center justify-between gap-20 p-5 sm:flex-row sm:gap-0 lg:p-16">
+    <div className="flex w-full flex-col-reverse items-center justify-between gap-20 overflow-x-clip p-5 sm:flex-row sm:gap-0 lg:p-16">
       {/* <div className="flex gap-8 justify-center items-center">
         <a
           href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
