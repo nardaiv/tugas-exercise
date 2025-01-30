@@ -7,7 +7,10 @@ const playwrite = Playwrite_IN({});
 
 export default function Details() {
   return (
-    <div className="flex min-h-80 flex-col items-center justify-around gap-5 bg-secondary p-5 sm:flex-row sm:gap-0 md:p-10">
+    <div
+      id="details"
+      className="flex min-h-80 flex-col items-center justify-around gap-5 bg-secondary p-5 sm:flex-row sm:gap-0 md:p-10"
+    >
       <div className="relative aspect-square w-10/12 max-w-60 sm:w-4/12">
         <Image
           src="/tahu-bulat (2).webp"
