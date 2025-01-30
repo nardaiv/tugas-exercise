@@ -42,7 +42,8 @@ export default function RootLayout({
             <div className="flex w-full flex-1 flex-col items-center gap-20 lg:gap-5">
               <Navbar />
 
-              <div className="flex w-full max-w-6xl flex-col gap-20 p-5">
+              {/* <div className="flex w-full max-w-6xl flex-col gap-20 p-5"> */}
+              <div className="flex w-full max-w-7xl flex-col gap-20">
                 {children}
               </div>
 
