@@ -5,13 +5,18 @@ import { createClient } from '@/utils/supabase/server';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 
+interface SignUpData extends FormData {
+  name?: string;
+}
+
 export const signUpAction = async (formData: FormData) => {
+  const name = formData.get('name')?.toString();
   const email = formData.get('email')?.toString();
   const password = formData.get('password')?.toString();
   const supabase = await createClient();
   const origin = (await headers()).get('origin');
 
-  if (!email || !password) {
+  if (!email || !password || !name) {
     return encodedRedirect(
       'error',
       '/sign-up',
@@ -24,6 +29,7 @@ export const signUpAction = async (formData: FormData) => {
     password,
     options: {
       emailRedirectTo: `${origin}/auth/callback`,
+      data: { name: name },
     },
   });
 
