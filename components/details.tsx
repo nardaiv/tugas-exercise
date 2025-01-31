@@ -36,7 +36,7 @@ export default function Details() {
 
         <div>
           <Button asChild size="sm" variant={'black'}>
-            <Link href="#details">Pesan Online</Link>
+            <Link href="/dashboard/order">Pesan Online</Link>
           </Button>
         </div>
       </div>
