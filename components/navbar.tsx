@@ -1,6 +1,4 @@
-import { EnvVarWarning } from '@/components/env-var-warning';
 import HeaderAuth from '@/components/header-auth';
-import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import Link from 'next/link';
 import Image from 'next/image';
 
