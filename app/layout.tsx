@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={montserratFont.className}
+      className={montserratFont.className + ' scroll-smooth'}
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground">
