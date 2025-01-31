@@ -2,6 +2,7 @@ import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 import { Montserrat } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
+import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import './globals.css';
 
 const defaultUrl = process.env.VERCEL_URL
@@ -28,6 +29,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // check env variable
+  if (!hasEnvVars) {
+    return (
+      <html>
+        <body>Env file failed to process</body>
+      </html>
+    );
+  }
+
   return (
     <html
       lang="id"
@@ -45,7 +55,6 @@ export default function RootLayout({
             <div className="flex w-full flex-1 flex-col items-center gap-20 lg:gap-5">
               <Navbar />
 
-              {/* <div className="flex w-full max-w-6xl flex-col gap-20 p-5"> */}
               <div className="flex w-full flex-col gap-20">{children}</div>
 
               <Footer />

@@ -59,12 +59,6 @@ export default async function AuthButton() {
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
-      {/* <form action={signOutAction}>
-          <Button type="submit" variant={'outline'}>
-            Sign out
-          </Button>
-        </form> */}
-      {/* </div> */}
     </NavigationMenu>
   ) : (
     <div className="flex gap-2">
