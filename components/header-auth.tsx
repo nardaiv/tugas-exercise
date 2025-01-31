@@ -33,13 +33,13 @@ export default async function AuthButton() {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="flex min-w-[20vw] flex-col p-3 sm:min-w-40 sm:p-5">
-              <Link href={'/dasboard/reset-password'} legacyBehavior passHref>
+              <Link href={'/dashboard/'} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Dashboard
                 </NavigationMenuLink>
               </Link>
 
-              <Link href={'/dasboard/reset-password'} legacyBehavior passHref>
+              <Link href={'/dashboard/reset-password'} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Reset Password
                 </NavigationMenuLink>
