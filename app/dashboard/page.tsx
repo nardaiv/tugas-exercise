@@ -3,6 +3,8 @@ import { createClient } from '@/utils/supabase/server';
 import { InfoIcon } from 'lucide-react';
 import { redirect } from 'next/navigation';
 import type { Metadata } from 'next';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Dashboard',
@@ -20,7 +22,7 @@ export default async function Dashboard() {
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-12 p-5">
+    <div className="mx-auto flex min-h-[400px] w-full max-w-xl flex-col gap-8 p-5">
       {/* <div className="w-full">
         <div className="flex items-center gap-3 rounded-md bg-accent p-3 px-5 text-sm text-foreground">
           <InfoIcon size="16" strokeWidth={2} />
@@ -38,6 +40,16 @@ export default async function Dashboard() {
         <h2 className="mb-4 text-2xl font-bold">Next steps</h2>
         <FetchDataSteps />
       </div> */}
+
+      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <hr />
+      <p>
+        Pesan tahu bulatmu sekarang! Pengiriman dapat dilakukan dengan ojek
+        online
+      </p>
+      <Link href={'/dashboard/order'}>
+        <Button>Buat Pesanan</Button>
+      </Link>
     </div>
   );
 }
