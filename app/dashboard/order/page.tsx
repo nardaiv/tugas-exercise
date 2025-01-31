@@ -61,7 +61,7 @@ export default function Order() {
           <input
             type="number"
             value={numItem}
-            className="w-10 appearance-none rounded border-2 bg-card text-center text-card-foreground shadow-2xl [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-10 appearance-none rounded border-2 bg-card text-center text-card-foreground shadow-2xl [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             onFocus={handleFocus}
             onChange={handleChangeItem}
           />
@@ -79,7 +79,7 @@ export default function Order() {
         <hr />
         <p className="text-base font-bold">
           {' '}
-          Total : Rp.{numItem * 10}.000, &ndash;
+          Total : Rp{numItem * 10}.000, &ndash;
         </p>
         <hr />
 

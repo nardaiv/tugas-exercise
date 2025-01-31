@@ -32,7 +32,7 @@ export default async function AuthButton() {
             </div>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="flex min-w-[20vw] flex-col p-3 sm:min-w-40 sm:p-5">
+            <div className="flex min-w-[20vw] flex-col p-3 sm:min-w-40 sm:px-5">
               <Link href={'/dashboard/'} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Dashboard
