@@ -27,7 +27,7 @@ export default async function Review() {
   });
 
   return (
-    <div className="p-5 md:p-5">
+    <div className="p-5 md:p-5" id="review">
       <h2 className="mb-10 text-center text-3xl">
         <span className={playwrite.className}> Testimoni</span>
       </h2>

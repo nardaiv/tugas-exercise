@@ -1,5 +1,6 @@
 import { ThemeSwitcher } from '@/components/theme-switcher';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -13,13 +14,15 @@ export default function Footer() {
             </p>
             <ul className="group pl-4 text-left text-sm/8 text-primary-foreground hover:[&>*]:underline">
               <li className="">
-                <a href="">Dashboard</a>
+                <Link href={'/dashboard'}>Dashboard</Link>
               </li>
               <li className="">
-                <a href="">Pesan</a>
+                <Link href={'/dashboard/order'}>Pesan</Link>
               </li>
               <li className="">
-                <a href="">Lokasi</a>
+                <Link href={'https://maps.app.goo.gl/Vyv7ekwzfEj4VxiW8'}>
+                  Lokasi
+                </Link>
               </li>
             </ul>
           </div>
@@ -30,13 +33,13 @@ export default function Footer() {
             </p>
             <ul className="pl-4 text-left text-sm/8 text-primary-foreground">
               <li className="hover:underline">
-                <a href="">Email</a>
+                <a href="mailto:admin@oh-my-tofu.com">Email</a>
               </li>
               <li className="hover:underline">
-                <a href="">Whatsapp</a>
+                <a href="https://wa.me/">Whatsapp</a>
               </li>
               <li className="hover:underline">
-                <a href="">Instagram</a>
+                <a href="https://www.instagram.com/">Instagram</a>
               </li>
             </ul>
           </div>

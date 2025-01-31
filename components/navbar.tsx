@@ -22,10 +22,10 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <ul className="group flex gap-5 text-sm hover:[&>*]:text-primary">
             <li>
-              <a href=""></a>Detail
+              <Link href={'/#details'}>Detail</Link>
             </li>
             <li>
-              <a href=""></a>Testimoni
+              <Link href={'/#review'}>Testimoni</Link>
             </li>
           </ul>
 

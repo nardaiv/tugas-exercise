@@ -1,10 +1,19 @@
 import { signOutAction } from '@/app/actions';
-import { hasEnvVars } from '@/utils/supabase/check-env-vars';
 import Link from 'next/link';
-import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { createClient } from '@/utils/supabase/server';
-import { User } from 'lucide-react';
+import { User, LogOut } from 'lucide-react';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
 
 export default async function AuthButton() {
   const supabase = await createClient();
@@ -13,52 +22,50 @@ export default async function AuthButton() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!hasEnvVars) {
-    return (
-      <>
-        <div className="flex items-center gap-4">
-          <div>
-            <Badge
-              variant={'default'}
-              className="pointer-events-none font-normal"
-            >
-              Please update .env.local file with anon key and url
-            </Badge>
-          </div>
-          <div className="flex gap-2">
-            <Button
-              asChild
-              size="sm"
-              variant={'outline'}
-              disabled
-              className="pointer-events-none cursor-none opacity-75"
-            >
-              <Link href="/sign-in">Sign in</Link>
-            </Button>
-            <Button
-              asChild
-              size="sm"
-              variant={'default'}
-              disabled
-              className="pointer-events-none cursor-none opacity-75"
-            >
-              <Link href="/sign-up">Sign up</Link>
-            </Button>
-          </div>
-        </div>
-      </>
-    );
-  }
   return user ? (
-    <div className="flex items-center gap-4">
-      <User size={15} />
-      Hey, {user.user_metadata.name}!
-      <form action={signOutAction}>
-        <Button type="submit" variant={'outline'}>
-          Sign out
-        </Button>
-      </form>
-    </div>
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>
+            <div className="flex items-center gap-2 ps-5">
+              <User size={15} /> {user.user_metadata.name}
+            </div>
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <div className="flex min-w-[20vw] flex-col p-3 sm:min-w-40 sm:p-5">
+              <Link href={'/dasboard/reset-password'} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Dashboard
+                </NavigationMenuLink>
+              </Link>
+
+              <Link href={'/dasboard/reset-password'} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Reset Password
+                </NavigationMenuLink>
+              </Link>
+
+              <hr className="my-2" />
+
+              <NavigationMenuLink>
+                <form action={signOutAction} className="flex justify-center">
+                  <Button type="submit" variant={'ghost'}>
+                    <LogOut size={15} />
+                    <span className="ms-2">Sign out</span>
+                  </Button>
+                </form>
+              </NavigationMenuLink>
+            </div>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+      {/* <form action={signOutAction}>
+          <Button type="submit" variant={'outline'}>
+            Sign out
+          </Button>
+        </form> */}
+      {/* </div> */}
+    </NavigationMenu>
   ) : (
     <div className="flex gap-2">
       <Button asChild size="sm" variant={'outline'}>
