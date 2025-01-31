@@ -13,7 +13,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-3">
-          <ul className="group flex gap-5 text-sm hover:[&>*]:text-primary">
+          <ul className="group hidden gap-5 text-sm sm:flex hover:[&>*]:text-primary">
             <li>
               <Link href={'/#details'}>Detail</Link>
             </li>
