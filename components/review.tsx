@@ -1,7 +1,4 @@
 import { Playwrite_IN } from 'next/font/google';
-import Image from 'next/image';
-import { Button } from './ui/button';
-import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
