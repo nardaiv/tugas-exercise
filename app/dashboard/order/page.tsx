@@ -8,6 +8,11 @@ import { createClient } from '@/utils/supabase/client';
 import { createOrderAction } from '@/app/actions';
 import { FormMessage, Message } from '@/components/form-message';
 import { SubmitButton } from '@/components/submit-button';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Order',
+};
 
 export default function Order() {
   const [numItem, setNumItem] = useState<number>(1);
