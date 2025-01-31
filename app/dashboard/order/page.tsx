@@ -1,12 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Minus, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { createClient } from '@/utils/supabase/client';
+import { createOrderAction } from '@/app/actions';
+import { FormMessage, Message } from '@/components/form-message';
+import { SubmitButton } from '@/components/submit-button';
 
 export default function Order() {
   const [numItem, setNumItem] = useState<number>(1);
+  const supabase = createClient();
 
   const handleChangeItem = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newNum = Number(event.target.value);
@@ -82,8 +87,18 @@ export default function Order() {
           Total : Rp{numItem * 10}.000, &ndash;
         </p>
         <hr />
-
-        <Button>Order</Button>
+        <form>
+          <input
+            name="number_order"
+            readOnly
+            className="hidden"
+            type="number"
+            value={numItem}
+          />
+          <SubmitButton pendingText="Loading..." formAction={createOrderAction}>
+            Order
+          </SubmitButton>
+        </form>
       </div>
     </div>
   );

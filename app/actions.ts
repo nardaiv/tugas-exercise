@@ -134,3 +134,7 @@ export const signOutAction = async () => {
   await supabase.auth.signOut();
   return redirect('/sign-in');
 };
+
+export const createOrderAction = async (data: any) => {
+  return encodedRedirect('success', '/dashboard', '');
+};
